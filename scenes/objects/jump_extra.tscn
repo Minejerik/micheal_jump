@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://yocr32ay4bfn"]
+
+[ext_resource type="Script" uid="uid://b8rwvub5hi5qj" path="res://scripts/objects/jump_extra.gd" id="1_qsx00"]
+[ext_resource type="Texture2D" uid="uid://ciptif1p4mwi1" path="res://assets/images/jump.png" id="2_qsx00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsx00"]
+resource_local_to_scene = true
+atlas = ExtResource("2_qsx00")
+region = Rect2(4, 4, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gydol"]
+size = Vector2(14, 14)
+
+[node name="JumpExtra" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_qsx00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_qsx00")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gydol")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

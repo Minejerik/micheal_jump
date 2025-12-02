@@ -1,0 +1,51 @@
+extends Node
+
+# If the player is in a "jump again" node
+var allowed_jump_again = false
+# Counter of the players deaths
+var deaths = 0
+
+# The current level the player is on
+var level_counter = 0
+# The list of all levels
+var levels = ["level1", "main"]
+
+# Called when the player dies, sent to player to play blood animation
+signal player_death
+# Called when the player picks up an item, used for ui
+signal item_picked_up(item_id)
+
+# Queue for items discovered in a level
+# If level is beaten, added to items found
+# If level failed, clear
+var item_discovery_queue = []
+
+# Items discovered
+var items_discovered = []
+
+func _load_level(level:String):
+	# Load a level, based on its name
+	get_tree().change_scene_to_file("res://scenes/levels/"+level+".tscn")
+
+func player_death_callback():
+	# Callback from the player, after they die, after animation plays + buffer
+	call_deferred("_load_level", levels[level_counter])
+
+func pick_up(item_id):
+	print("PICK UP")
+	# Pick up an item
+	item_discovery_queue.append(item_id)
+	item_picked_up.emit(item_id)
+	
+
+func next_level():
+	# Goes to the next level, increments level counter and loads it
+	level_counter += 1
+	items_discovered.append_array(item_discovery_queue)
+	call_deferred("_load_level", levels[level_counter])
+
+func kill_player():
+	# Kills the player, adds one to deaths, and emits the player death signal
+	item_discovery_queue = []
+	deaths += 1
+	player_death.emit()

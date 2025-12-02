@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddunuysbyun8j"]
+
+[ext_resource type="Script" uid="uid://s20pn8wd5xvy" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://cmeepwsrht1rf" path="res://assets/images/enemy.png" id="2_md0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(15.5, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+
+[node name="enemy" type="PathFollow2D"]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5707964
+texture = ExtResource("2_md0e3")
+
+[node name="RigidBody2D" type="CharacterBody2D" parent="."]
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_3vyb7")
+
+[node name="death_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
+shape = SubResource("RectangleShape2D_md0e3")
+
+[connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]
