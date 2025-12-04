@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctn1syrptfjc4"]
+[gd_scene load_steps=4 format=3 uid="uid://ctn1syrptfjc4"]
 
 [ext_resource type="Script" uid="uid://dkrrdpgt6il5t" path="res://scripts/objects/collectable.gd" id="1_xs5w6"]
+[ext_resource type="Texture2D" uid="uid://bfmx2pjpjb85l" path="res://assets/images/items/os_31.png" id="2_3cqwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icpe0"]
 size = Vector2(16, 16)
@@ -9,6 +10,8 @@ size = Vector2(16, 16)
 script = ExtResource("1_xs5w6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_3cqwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_icpe0")

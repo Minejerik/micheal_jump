@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://daac4nwrxggdl"]
+[gd_scene load_steps=11 format=4 uid="uid://daac4nwrxggdl"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_1seuy"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_2r1tl"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ctn1syrptfjc4" path="res://scenes/objects/collectable.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://cc1cyebpjid5f" path="res://scenes/objects/goal.tscn" id="6_nkeig"]
 [ext_resource type="PackedScene" uid="uid://rldmsedtbayf" path="res://scenes/HUD.tscn" id="7_2r1tl"]
+[ext_resource type="Texture2D" uid="uid://bfmx2pjpjb85l" path="res://assets/images/items/os_31.png" id="7_plydf"]
+[ext_resource type="PackedScene" uid="uid://be2f85oqts4cp" path="res://scenes/objects/interaction_marker.tscn" id="8_8a7m2"]
+[ext_resource type="PackedScene" uid="uid://dvvn74ahhnxmf" path="res://scenes/bicheal.tscn" id="10_5ntmo"]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
-
-[node name="Hud" parent="." instance=ExtResource("7_2r1tl")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-1, 0)
@@ -20,6 +21,7 @@ tile_set = ExtResource("1_1seuy")
 
 [node name="player" parent="." instance=ExtResource("2_2r1tl")]
 position = Vector2(126, 296)
+bicheal_mode = true
 
 [node name="goal" parent="." instance=ExtResource("6_nkeig")]
 position = Vector2(487, 290)
@@ -41,4 +43,14 @@ position = Vector2(425, 136)
 
 [node name="Collectable" parent="." instance=ExtResource("6_1seuy")]
 position = Vector2(375, 88)
-ITEM_TEXTURE = "uid://cmeepwsrht1rf"
+ITEM_ID = "OS31"
+ITEM_TEXTURE = ExtResource("7_plydf")
+
+[node name="Hud" parent="." instance=ExtResource("7_2r1tl")]
+
+[node name="InteractionMarker" parent="." instance=ExtResource("8_8a7m2")]
+position = Vector2(96, 252)
+
+[node name="bicheal" parent="." instance=ExtResource("10_5ntmo")]
+visible = false
+position = Vector2(126, 296)

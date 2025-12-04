@@ -9,7 +9,7 @@ atlas = ExtResource("2_qsx00")
 region = Rect2(4, 4, 8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gydol"]
-size = Vector2(14, 14)
+size = Vector2(16, 16)
 
 [node name="JumpExtra" type="Node2D"]
 texture_filter = 1

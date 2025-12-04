@@ -8,12 +8,18 @@ var deaths = 0
 # The current level the player is on
 var level_counter = 0
 # The list of all levels
-var levels = ["level1", "main"]
+var levels = ["level1", "level2"]
+
+# BICHEAL STUFF
+var last_positions = []
+signal first_move
+var is_first_move
 
 # Called when the player dies, sent to player to play blood animation
 signal player_death
 # Called when the player picks up an item, used for ui
 signal item_picked_up(item_id)
+
 
 # Queue for items discovered in a level
 # If level is beaten, added to items found
@@ -24,10 +30,13 @@ var item_discovery_queue = []
 var items_discovered = []
 
 func _load_level(level:String):
+	last_positions = []
+	is_first_move = false
 	# Load a level, based on its name
 	get_tree().change_scene_to_file("res://scenes/levels/"+level+".tscn")
 
 func player_death_callback():
+	last_positions = []
 	# Callback from the player, after they die, after animation plays + buffer
 	call_deferred("_load_level", levels[level_counter])
 
@@ -36,7 +45,6 @@ func pick_up(item_id):
 	# Pick up an item
 	item_discovery_queue.append(item_id)
 	item_picked_up.emit(item_id)
-	
 
 func next_level():
 	# Goes to the next level, increments level counter and loads it
@@ -49,3 +57,9 @@ func kill_player():
 	item_discovery_queue = []
 	deaths += 1
 	player_death.emit()
+	
+func bicheal_add_position(position):
+	if !is_first_move:
+		is_first_move = true
+		first_move.emit()
+	last_positions.append(position)

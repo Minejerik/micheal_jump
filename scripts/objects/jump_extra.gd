@@ -11,11 +11,13 @@ func _physics_process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "player" && cool_down == false:
+		Engine.time_scale = 0.2
 		DM.allowed_jump_again = true
 		cool_down = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
+		Engine.time_scale = 1
 		DM.allowed_jump_again = false
 		$Timer.start()
 

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var gravity = 800
 @export var jump_speed = -300
 @export var run_speed = 200
+@export var bicheal_mode = false
 
 var jumping = false
 var dying = false
@@ -33,6 +34,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = input_direction * run_speed
 	
 	move_and_slide()
+	
+	if bicheal_mode:
+		DM.bicheal_add_position(position)
 
 func _on_death_timer_timeout() -> void:
 	DM.player_death_callback()

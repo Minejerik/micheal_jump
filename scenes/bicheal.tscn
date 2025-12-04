@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvn74ahhnxmf"]
+
+[ext_resource type="Script" uid="uid://jq4w41n6ynot" path="res://scripts/bicheal.gd" id="1_v7c3k"]
+[ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="2_pnhec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7c3k"]
+size = Vector2(18, 18)
+
+[node name="bicheal" type="CharacterBody2D"]
+script = ExtResource("1_v7c3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.8495389, 0, 0.19931987, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pnhec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3vyb7")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="death_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
+shape = SubResource("RectangleShape2D_v7c3k")
+disabled = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]

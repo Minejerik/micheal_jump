@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2f85oqts4cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwy5"]
+size = Vector2(67, 82)
+
+[node name="InteractionMarker" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 67.0
+offset_bottom = 81.99985
+theme_override_font_sizes/font_size = 10
+text = "AD - Move
+Space - Jump"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(33.5, 41)
+shape = SubResource("RectangleShape2D_fuwy5")
