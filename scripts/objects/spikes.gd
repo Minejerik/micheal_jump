@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 
 func _on_death_area_body_entered(body: Node2D) -> void:

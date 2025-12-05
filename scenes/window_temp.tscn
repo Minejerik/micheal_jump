@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://2snt8h428t4s"]
+
+[sub_resource type="Theme" id="Theme_ruwrp"]
+
+[node name="Window" type="Window"]
+oversampling_override = 1.0
+title = "Start Game"
+initial_position = 1
+size = Vector2i(195, 100)
+min_size = Vector2i(195, 100)
+max_size = Vector2i(300, 100)
+theme = SubResource("Theme_ruwrp")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.75
+offset_top = -29.75
+offset_right = 69.75
+offset_bottom = 29.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game!"

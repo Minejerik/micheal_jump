@@ -50,5 +50,7 @@ ITEM_TEXTURE = ExtResource("7_plydf")
 [node name="InteractionMarker" parent="." instance=ExtResource("8_8a7m2")]
 position = Vector2(96, 252)
 
-[node name="bicheal" parent="." instance=ExtResource("10_5ntmo")]
+[node name="bicheal" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_5ntmo")]
+visible = false
 position = Vector2(108, 297)
+player = NodePath("../player")

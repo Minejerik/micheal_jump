@@ -31,6 +31,10 @@ var item_discovery_queue = []
 # Items discovered
 var items_discovered = []
 
+func start_game():
+	# Starts the game, eg loads the first level
+	call_deferred("_load_level", levels[0])
+
 func _load_level(level:String):
 	last_positions = []
 	is_first_move = false
