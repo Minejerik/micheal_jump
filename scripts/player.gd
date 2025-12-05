@@ -7,13 +7,18 @@ extends CharacterBody2D
 
 var jumping = false
 var dying = false
+var send_pos = false
 
 func _ready() -> void:
+	Engine.time_scale = 1
 	DM.player_death.connect(handle_death)
 
 func handle_death():
 	dying = true
+	Engine.time_scale = 0.2
 	$DeathParticles.emitting = true
+	var temp = create_tween()
+	temp.tween_property($Camera2D, "zoom", Vector2(4.5,4.5), 0.1).set_trans(Tween.TRANS_QUAD)
 	$DeathTimer.start()
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 		
 	if !dying:
-		if Input.is_action_just_pressed("ui_up") and (is_on_floor() || DM.allowed_jump_again):
+		if Input.is_action_pressed("ui_up") and (is_on_floor() || DM.allowed_jump_again):
 			jumping = true
 			velocity.y = jump_speed
 			
@@ -35,8 +40,11 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if bicheal_mode:
+	if bicheal_mode && send_pos:
 		DM.bicheal_add_position(position)
+
+func _input(_event: InputEvent) -> void:
+	send_pos = true
 
 func _on_death_timer_timeout() -> void:
 	DM.player_death_callback()

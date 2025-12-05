@@ -19,6 +19,8 @@ var is_first_move
 signal player_death
 # Called when the player picks up an item, used for ui
 signal item_picked_up(item_id)
+# If the player is currently dead or not
+var player_dead = false
 
 
 # Queue for items discovered in a level
@@ -32,6 +34,7 @@ var items_discovered = []
 func _load_level(level:String):
 	last_positions = []
 	is_first_move = false
+	player_dead = false
 	# Load a level, based on its name
 	get_tree().change_scene_to_file("res://scenes/levels/"+level+".tscn")
 
@@ -47,16 +50,18 @@ func pick_up(item_id):
 	item_picked_up.emit(item_id)
 
 func next_level():
-	# Goes to the next level, increments level counter and loads it
-	level_counter += 1
-	items_discovered.append_array(item_discovery_queue)
-	call_deferred("_load_level", levels[level_counter])
+	if !player_dead:
+		# Goes to the next level, increments level counter and loads it
+		level_counter += 1
+		items_discovered.append_array(item_discovery_queue)
+		call_deferred("_load_level", levels[level_counter])
 
 func kill_player():
 	# Kills the player, adds one to deaths, and emits the player death signal
 	item_discovery_queue = []
 	deaths += 1
 	player_death.emit()
+	player_dead = true
 	
 func bicheal_add_position(position):
 	if !is_first_move:

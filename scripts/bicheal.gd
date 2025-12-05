@@ -9,9 +9,10 @@ func first_move_start():
 	$Timer.start()
 
 func _physics_process(_delta: float) -> void:
-	if started:
+	if started:# && !DM.player_dead:
 		position = DM.last_positions[0]
 		DM.last_positions.remove_at(0)
+		
 
 func _on_timer_timeout() -> void:
 	started = true

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="2_pnhec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(14, 14)
+size = Vector2(15.5, 15.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7c3k"]
 size = Vector2(18, 18)
@@ -22,7 +22,6 @@ shape = SubResource("RectangleShape2D_3vyb7")
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
 one_shot = true
 
 [node name="death_area" type="Area2D" parent="."]
