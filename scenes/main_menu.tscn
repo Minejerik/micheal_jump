@@ -1,55 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dflfvfu6280no"]
+[gd_scene load_steps=5 format=3 uid="uid://dflfvfu6280no"]
 
 [ext_resource type="Script" uid="uid://cnvw3sj2vepya" path="res://scripts/ui/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="FontFile" uid="uid://c0q2m1jy1cijq" path="res://assets/ui/W95font.otf" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://jme5xuca8qbg" path="res://assets/images/menu/bg.png" id="1_l6cm7"]
-[ext_resource type="StyleBox" uid="uid://ygfsf5kumsck" path="res://assets/ui/themes/window_border_stylebox.tres" id="3_wu84c"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-shadow_size = 2
-shadow_offset = Vector2(-2, -2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
-bg_color = Color(0.8392157, 0.8392157, 0.8392157, 1)
-border_width_left = 2
-border_width_top = 2
-border_color = Color(1, 1, 1, 1)
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
-
-[sub_resource type="DPITexture" id="DPITexture_8ln24"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#fff\" fill-opacity=\".75\" d=\"m1 3 2-2 5 5 5-5 2 2-5 5 5 5-2 2-5-5-5 5-2-2 5-5z\"/></svg>
-"
-
-[sub_resource type="DPITexture" id="DPITexture_rtw2f"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#fff\" d=\"m1 3 2-2 5 5 5-5 2 2-5 5 5 5-2 2-5-5-5 5-2-2 5-5z\"/></svg>
-"
-
-[sub_resource type="Theme" id="Theme_ruwrp"]
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 25
-Button/fonts/font = ExtResource("1_ekxnf")
-Button/styles/hover = SubResource("StyleBoxFlat_ekxnf")
-Button/styles/normal = SubResource("StyleBoxFlat_l6cm7")
-Window/colors/title_color = Color(0, 0, 0, 1)
-Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
-Window/constants/close_h_offset = 18
-Window/constants/close_v_offset = 22
-Window/constants/resize_margin = 4
-Window/constants/title_height = 27
-Window/constants/title_outline_size = 0
-Window/font_sizes/title_font_size = 20
-Window/fonts/title_font = ExtResource("1_ekxnf")
-Window/icons/close = SubResource("DPITexture_8ln24")
-Window/icons/close_pressed = SubResource("DPITexture_rtw2f")
-Window/styles/embedded_border = ExtResource("3_wu84c")
-Window/styles/embedded_unfocused_border = ExtResource("3_wu84c")
+[ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dixuvrmvaknta" path="res://assets/images/menu/settings.png" id="4_wu84c"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_bqqt6")
@@ -62,7 +16,7 @@ size = Vector2i(195, 100)
 popup_window = true
 min_size = Vector2i(195, 100)
 max_size = Vector2i(300, 100)
-theme = SubResource("Theme_ruwrp")
+theme = ExtResource("2_bqqt6")
 
 [node name="ColorRect" type="ColorRect" parent="Start"]
 anchors_preset = 15
@@ -90,13 +44,12 @@ text = "Start Game!"
 [node name="Readme" type="Window" parent="."]
 oversampling_override = 1.0
 title = "readme.txt"
-position = Vector2i(178, 179)
+position = Vector2i(73, 433)
 size = Vector2i(195, 100)
-visible = false
 popup_window = true
 min_size = Vector2i(195, 100)
 max_size = Vector2i(300, 100)
-theme = SubResource("Theme_ruwrp")
+theme = ExtResource("2_bqqt6")
 
 [node name="ColorRect" type="ColorRect" parent="Readme"]
 anchors_preset = 15
@@ -105,6 +58,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="Label" type="Label" parent="Readme/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Arrow Keys - Move
+Space - Jump
+
+Avoid the tuxes!"
+
+[node name="Title" type="Window" parent="."]
+oversampling_override = 1.0
+title = "title.txt"
+position = Vector2i(418, 64)
+size = Vector2i(460, 100)
+popup_window = true
+min_size = Vector2i(375, 100)
+max_size = Vector2i(500, 200)
+theme = ExtResource("2_bqqt6")
+
+[node name="ColorRect" type="ColorRect" parent="Title"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="Label" type="Label" parent="Title/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -31.5
+offset_right = 170.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Micheal Jump!"
+autowrap_trim_flags = 0
+justification_flags = 0
 
 [node name="BackGround" type="TextureRect" parent="."]
 texture_filter = 1
@@ -116,11 +118,22 @@ grow_vertical = 2
 texture = ExtResource("1_l6cm7")
 expand_mode = 2
 
-[node name="Desktop" type="GridContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Settings" type="VBoxContainer" parent="BackGround"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme = ExtResource("2_bqqt6")
+
+[node name="SettingsButton" type="TextureButton" parent="BackGround/Settings"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("2_bqqt6")
+texture_normal = ExtResource("4_wu84c")
+stretch_mode = 0
+
+[node name="SettingsLabel" type="Label" parent="BackGround/Settings"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="Start/ColorRect/StartGame" to="." method="_on_start_game_button_down"]
