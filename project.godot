@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 DM="*res://scripts/managers/DM.gd"
 IM="*res://scripts/managers/IM.gd"
 PM="*res://scripts/managers/PM.gd"
+SM="*res://scripts/managers/SM.gd"
 
 [display]
 
@@ -28,7 +29,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/crt/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 
