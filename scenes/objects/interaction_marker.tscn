@@ -1,16 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://be2f85oqts4cp"]
+[gd_scene load_steps=3 format=3 uid="uid://be2f85oqts4cp"]
+
+[ext_resource type="Script" uid="uid://36xfaadjnqj3" path="res://scripts/objects/interaction_marker.gd" id="1_1s886"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwy5"]
 size = Vector2(67, 82)
 
 [node name="InteractionMarker" type="Node2D"]
+script = ExtResource("1_1s886")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 67.0
 offset_bottom = 81.99985
 theme_override_font_sizes/font_size = 10
-text = "AD - Move
-Space - Jump"
+text = "Avoid the spikes!"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -19,3 +21,6 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(33.5, 41)
 shape = SubResource("RectangleShape2D_fuwy5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,14 +1,12 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bgwet62xxfxeb"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bgwet62xxfxeb"]
 
 [ext_resource type="FontFile" uid="uid://c0q2m1jy1cijq" path="res://assets/ui/W95font.otf" id="1_gym15"]
 [ext_resource type="StyleBox" uid="uid://ygfsf5kumsck" path="res://assets/ui/themes/window_border_stylebox.tres" id="2_01qoa"]
+[ext_resource type="StyleBox" uid="uid://bjwfgtwdipkx1" path="res://assets/ui/themes/button_focus_stylebox.tres" id="2_dixgl"]
+[ext_resource type="Texture2D" uid="uid://btv1y2swbm0wc" path="res://assets/images/menu/slider/select.png" id="3_v1dnd"]
+[ext_resource type="Texture2D" uid="uid://bke70c5xb8oij" path="res://assets/images/menu/slider/tick.png" id="4_khngx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-shadow_size = 2
-shadow_offset = Vector2(-2, -2)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01qoa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
 bg_color = Color(0.8392157, 0.8392157, 0.8392157, 1)
@@ -17,6 +15,19 @@ border_width_top = 2
 border_color = Color(1, 1, 1, 1)
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v1dnd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khngx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01qoa"]
+bg_color = Color(0.38170326, 0.38170326, 0.3817031, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 2.0
+shadow_size = 1
+shadow_offset = Vector2(-1, -1)
 
 [sub_resource type="DPITexture" id="DPITexture_8ln24"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#fff\" fill-opacity=\".75\" d=\"m1 3 2-2 5 5 5-5 2 2-5 5 5 5-2 2-5-5-5 5-2-2 5-5z\"/></svg>
@@ -33,8 +44,17 @@ Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 25
 Button/fonts/font = ExtResource("1_gym15")
-Button/styles/hover = SubResource("StyleBoxFlat_ekxnf")
+Button/styles/focus = SubResource("StyleBoxEmpty_01qoa")
+Button/styles/hover = ExtResource("2_dixgl")
 Button/styles/normal = SubResource("StyleBoxFlat_l6cm7")
+HSlider/constants/tick_offset = 18
+HSlider/icons/grabber = ExtResource("3_v1dnd")
+HSlider/icons/grabber_disabled = ExtResource("3_v1dnd")
+HSlider/icons/grabber_highlight = ExtResource("3_v1dnd")
+HSlider/icons/tick = ExtResource("4_khngx")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_v1dnd")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_khngx")
+HSlider/styles/slider = SubResource("StyleBoxFlat_01qoa")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = ExtResource("1_gym15")
 Window/colors/title_color = Color(0, 0, 0, 1)

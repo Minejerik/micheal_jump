@@ -32,8 +32,14 @@ var item_discovery_queue = []
 var items_discovered = []
 
 func start_game():
+	level_counter = 0
 	# Starts the game, eg loads the first level
 	call_deferred("_load_level", levels[0])
+
+
+func restart_level():
+	call_deferred("_load_level", levels[level_counter])
+	
 
 func _load_level(level:String):
 	last_positions = []

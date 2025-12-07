@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddul5v5uko2nc"]
+
+[ext_resource type="Script" uid="uid://capd22186s2m4" path="res://scripts/ui/pause_menu.gd" id="1_0lmf7"]
+[ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="1_6tw0m"]
+[ext_resource type="PackedScene" uid="uid://ustsft2lbc4j" path="res://scenes/ui/settings.tscn" id="3_f6eus"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 2
+follow_viewport_enabled = true
+script = ExtResource("1_0lmf7")
+
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+title = "pause.exe"
+initial_position = 1
+size = Vector2i(230, 190)
+visible = false
+unresizable = true
+theme = ExtResource("1_6tw0m")
+
+[node name="ColorRect" type="ColorRect" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ReturnButton" type="Button" parent="Window/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return to Game"
+
+[node name="RestartButton" type="Button" parent="Window/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="SettingsButton" type="Button" parent="Window/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Window/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit to Menu"
+
+[node name="Settings" parent="." instance=ExtResource("3_f6eus")]
+position = Vector2i(735, 435)
+visible = false
+
+[connection signal="pressed" from="Window/ColorRect/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Window/ColorRect/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Window/ColorRect/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Window/ColorRect/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://daac4nwrxggdl"]
+[gd_scene load_steps=10 format=4 uid="uid://daac4nwrxggdl"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_1seuy"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_2r1tl"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bucfloaggv36w" path="res://scenes/objects/spikes.tscn" id="5_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://ctn1syrptfjc4" path="res://scenes/objects/collectable.tscn" id="6_1seuy"]
 [ext_resource type="PackedScene" uid="uid://cc1cyebpjid5f" path="res://scenes/objects/goal.tscn" id="6_nkeig"]
-[ext_resource type="PackedScene" uid="uid://rldmsedtbayf" path="res://scenes/HUD.tscn" id="7_2r1tl"]
+[ext_resource type="PackedScene" uid="uid://rldmsedtbayf" path="res://scenes/ui/HUD.tscn" id="7_2r1tl"]
 [ext_resource type="Texture2D" uid="uid://bfmx2pjpjb85l" path="res://assets/images/items/os_31.png" id="7_plydf"]
-[ext_resource type="PackedScene" uid="uid://be2f85oqts4cp" path="res://scenes/objects/interaction_marker.tscn" id="8_8a7m2"]
-[ext_resource type="PackedScene" uid="uid://dvvn74ahhnxmf" path="res://scenes/bicheal.tscn" id="10_5ntmo"]
+[ext_resource type="PackedScene" uid="uid://ddul5v5uko2nc" path="res://scenes/ui/pause_menu.tscn" id="9_nkeig"]
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -47,10 +46,5 @@ ITEM_TEXTURE = ExtResource("7_plydf")
 
 [node name="Hud" parent="." instance=ExtResource("7_2r1tl")]
 
-[node name="InteractionMarker" parent="." instance=ExtResource("8_8a7m2")]
-position = Vector2(96, 252)
-
-[node name="bicheal" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_5ntmo")]
+[node name="PauseMenu" parent="." instance=ExtResource("9_nkeig")]
 visible = false
-position = Vector2(108, 297)
-player = NodePath("../player")

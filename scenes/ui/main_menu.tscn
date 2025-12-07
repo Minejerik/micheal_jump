@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dflfvfu6280no"]
+[gd_scene load_steps=6 format=3 uid="uid://dflfvfu6280no"]
 
 [ext_resource type="Script" uid="uid://cnvw3sj2vepya" path="res://scripts/ui/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://jme5xuca8qbg" path="res://assets/images/menu/bg.png" id="1_l6cm7"]
 [ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="2_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://ustsft2lbc4j" path="res://scenes/ui/settings.tscn" id="3_x2yvf"]
 [ext_resource type="Texture2D" uid="uid://dixuvrmvaknta" path="res://assets/images/menu/settings.png" id="4_wu84c"]
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -10,7 +11,7 @@ script = ExtResource("1_bqqt6")
 
 [node name="Start" type="Window" parent="."]
 oversampling_override = 1.0
-title = "Start Game"
+title = "micheal_jump.exe"
 initial_position = 1
 size = Vector2i(195, 100)
 popup_window = true
@@ -44,11 +45,11 @@ text = "Start Game!"
 [node name="Readme" type="Window" parent="."]
 oversampling_override = 1.0
 title = "readme.txt"
-position = Vector2i(73, 433)
-size = Vector2i(195, 100)
+position = Vector2i(793, 450)
+size = Vector2i(195, 130)
 popup_window = true
 min_size = Vector2i(195, 100)
-max_size = Vector2i(300, 100)
+max_size = Vector2i(300, 200)
 theme = ExtResource("2_bqqt6")
 
 [node name="ColorRect" type="ColorRect" parent="Readme"]
@@ -69,13 +70,18 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 21
 text = "Arrow Keys - Move
 Space - Jump
+Escape- Pause
 
 Avoid the tuxes!"
+
+[node name="Settings" parent="." instance=ExtResource("3_x2yvf")]
+position = Vector2i(60, 465)
+visible = false
 
 [node name="Title" type="Window" parent="."]
 oversampling_override = 1.0
 title = "title.txt"
-position = Vector2i(418, 64)
+position = Vector2i(418, 79)
 size = Vector2i(460, 100)
 popup_window = true
 min_size = Vector2i(375, 100)
@@ -137,3 +143,4 @@ text = "Settings"
 horizontal_alignment = 1
 
 [connection signal="button_down" from="Start/ColorRect/StartGame" to="." method="_on_start_game_button_down"]
+[connection signal="pressed" from="BackGround/Settings/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -9,9 +9,19 @@ var jumping = false
 var dying = false
 var send_pos = false
 
+var save_velocity
+
 func _ready() -> void:
 	Engine.time_scale = 1
 	DM.player_death.connect(handle_death)
+	PM.game_paused.connect(pause_save_velocity)
+	PM.game_unpaused.connect(unpause_restore_velocity)
+
+func pause_save_velocity():
+	save_velocity = velocity
+
+func unpause_restore_velocity():
+	velocity = save_velocity
 
 func handle_death():
 	dying = true
@@ -28,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 		
 	if !dying:
-		if Input.is_action_pressed("ui_up") and (is_on_floor() || DM.allowed_jump_again):
+		if Input.is_action_pressed("jump") and (is_on_floor() || DM.allowed_jump_again):
 			jumping = true
 			velocity.y = jump_speed
 			

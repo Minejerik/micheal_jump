@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ustsft2lbc4j"]
+
+[ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="1_7pacj"]
+[ext_resource type="Script" uid="uid://dan2oy7w15ail" path="res://scripts/ui/settings.gd" id="2_h175o"]
+
+[node name="Settings" type="Window"]
+oversampling_override = 1.0
+title = "settings.exe"
+size = Vector2i(300, 100)
+popup_window = true
+min_size = Vector2i(195, 100)
+max_size = Vector2i(300, 200)
+theme = ExtResource("1_7pacj")
+script = ExtResource("2_h175o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.83889705, 0.83889705, 0.838897, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Volume:"
+
+[node name="VolumeSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_7pacj")
+tick_count = 7
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SettingsSave" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save Changes"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

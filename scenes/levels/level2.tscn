@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dg7dij5vxl23r"]
+[gd_scene load_steps=12 format=4 uid="uid://dg7dij5vxl23r"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_ok6xr"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_dj4wq"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bucfloaggv36w" path="res://scenes/objects/spikes.tscn" id="5_oyk6k"]
 [ext_resource type="PackedScene" uid="uid://cc1cyebpjid5f" path="res://scenes/objects/goal.tscn" id="6_gycjm"]
 [ext_resource type="PackedScene" uid="uid://ctn1syrptfjc4" path="res://scenes/objects/collectable.tscn" id="7_dj4wq"]
-[ext_resource type="Texture2D" uid="uid://cmeepwsrht1rf" path="res://assets/images/enemy.png" id="8_k0mew"]
-[ext_resource type="PackedScene" uid="uid://rldmsedtbayf" path="res://scenes/HUD.tscn" id="9_b0vvs"]
+[ext_resource type="Texture2D" uid="uid://cdp5s83pdla2i" path="res://assets/images/items/os_95.png" id="8_oyk6k"]
+[ext_resource type="PackedScene" uid="uid://rldmsedtbayf" path="res://scenes/ui/HUD.tscn" id="9_b0vvs"]
+[ext_resource type="PackedScene" uid="uid://ddul5v5uko2nc" path="res://scenes/ui/pause_menu.tscn" id="10_oyk6k"]
 
 [sub_resource type="Curve2D" id="Curve2D_j4d2a"]
 _data = {
@@ -47,7 +48,7 @@ rotates = false
 position = Vector2(359, 216)
 
 [node name="goal" parent="." instance=ExtResource("6_gycjm")]
-position = Vector2(519, 97)
+position = Vector2(519, 98)
 
 [node name="JumpExtra4" parent="." instance=ExtResource("3_k0mew")]
 position = Vector2(324, 85)
@@ -60,7 +61,8 @@ position = Vector2(146, -23)
 
 [node name="Collectable" parent="." instance=ExtResource("7_dj4wq")]
 position = Vector2(23, -63)
-ITEM_TEXTURE = ExtResource("8_k0mew")
+ITEM_ID = "OS95"
+ITEM_TEXTURE = ExtResource("8_oyk6k")
 
 [node name="spikes2" parent="." instance=ExtResource("5_oyk6k")]
 position = Vector2(55, 56)
@@ -87,3 +89,5 @@ position = Vector2(167, 56)
 position = Vector2(135, 56)
 
 [node name="Hud" parent="." instance=ExtResource("9_b0vvs")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_oyk6k")]
