@@ -8,7 +8,7 @@ var deaths = 0
 # The current level the player is on
 var level_counter = 0
 # The list of all levels
-var levels = ["level1", "level2"]
+var levels = ["level1", "level2", "level3", "level4", "level5"]
 
 # BICHEAL STUFF
 var last_positions = []
@@ -50,6 +50,7 @@ func _load_level(level:String):
 
 func player_death_callback():
 	last_positions = []
+	TM.reset_speed()
 	# Callback from the player, after they die, after animation plays + buffer
 	call_deferred("_load_level", levels[level_counter])
 

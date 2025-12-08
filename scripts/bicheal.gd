@@ -14,6 +14,7 @@ func first_move_start():
 	$Timer.start()
 
 func _physics_process(_delta: float) -> void:
+	print(len(DM.last_positions))
 	if started && !DM.player_dead:
 		position = DM.last_positions[0]
 		DM.last_positions.remove_at(0)

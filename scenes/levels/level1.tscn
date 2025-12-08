@@ -18,7 +18,7 @@ tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAABABMAAAAAAAAAAAACABMAAAAAAAA
 tile_set = ExtResource("1_1seuy")
 
 [node name="player" parent="." instance=ExtResource("2_2r1tl")]
-position = Vector2(126, 296)
+position = Vector2(127, 296)
 bicheal_mode = true
 
 [node name="goal" parent="." instance=ExtResource("6_nkeig")]

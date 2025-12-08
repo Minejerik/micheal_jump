@@ -12,7 +12,6 @@ var send_pos = false
 var save_velocity
 
 func _ready() -> void:
-	Engine.time_scale = 1
 	DM.player_death.connect(handle_death)
 	PM.game_paused.connect(pause_save_velocity)
 	PM.game_unpaused.connect(unpause_restore_velocity)
@@ -25,7 +24,8 @@ func unpause_restore_velocity():
 
 func handle_death():
 	dying = true
-	Engine.time_scale = 0.2
+	#Engine.time_scale = 0.2
+	TM.request_time_change(0.2, 10)
 	$DeathParticles.emitting = true
 	var temp = create_tween()
 	temp.tween_property($Camera2D, "zoom", Vector2(4.5,4.5), 0.1).set_trans(Tween.TRANS_QUAD)
