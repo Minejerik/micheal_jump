@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://ustsft2lbc4j"]
 
 [ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="1_7pacj"]
-[ext_resource type="Script" path="res://scripts/ui/settings.gd" id="2_h175o"]
+[ext_resource type="Script" uid="uid://dan2oy7w15ail" path="res://scripts/ui/settings.gd" id="2_h175o"]
 
 [node name="Settings" type="Window"]
 oversampling_override = 1.0
 title = "settings.exe"
-size = Vector2i(300, 135)
+position = Vector2i(0, 27)
+size = Vector2i(300, 125)
 popup_window = true
 min_size = Vector2i(195, 100)
 max_size = Vector2i(300, 200)
@@ -35,6 +36,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 13
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -58,14 +60,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Jump Boost Slowdown: "
+text = "Jump Boost Assist: "
 
-[node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="assistCheck" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
+size_flags_horizontal = 10
 
 [node name="SettingsSave" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2

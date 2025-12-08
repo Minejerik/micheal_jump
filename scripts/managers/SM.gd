@@ -1,5 +1,6 @@
 extends Node
 
 var SETTINGS = {
-	"volume": 50
+	"volume": 50,
+	"assist": false
 }
