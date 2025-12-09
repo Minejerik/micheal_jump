@@ -22,6 +22,7 @@ IM="*res://scripts/managers/IM.gd"
 PM="*res://scripts/managers/PM.gd"
 SM="*res://scripts/managers/SM.gd"
 TM="*res://scripts/managers/TM.gd"
+Dialog="*res://scripts/managers/dialog.gd"
 
 [display]
 

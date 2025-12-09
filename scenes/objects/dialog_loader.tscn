@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qohka4rrcyai"]
+
+[ext_resource type="Script" uid="uid://budbm7lkor6yt" path="res://scripts/objects/dialog_loader.gd" id="1_xfs04"]
+
+[node name="DialogLoader" type="Node2D"]
+script = ExtResource("1_xfs04")
+
+[node name="start_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]

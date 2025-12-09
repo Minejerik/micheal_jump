@@ -45,6 +45,7 @@ func _load_level(level:String):
 	last_positions = []
 	is_first_move = false
 	player_dead = false
+	TM.reset_speed()
 	# Load a level, based on its name
 	get_tree().change_scene_to_file("res://scenes/levels/"+level+".tscn")
 

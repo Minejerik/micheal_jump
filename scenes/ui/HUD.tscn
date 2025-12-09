@@ -1,22 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://rldmsedtbayf"]
+[gd_scene load_steps=7 format=3 uid="uid://rldmsedtbayf"]
 
 [ext_resource type="Script" uid="uid://dfn8lx4rspv6f" path="res://scripts/hud.gd" id="1_qpvh6"]
-
-[sub_resource type="Animation" id="Animation_jvwwx"]
-resource_name = "pop_up"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(2.7320807, 1),
-"update": 0,
-"values": [700.0, 603.0]
-}
+[ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="2_atyv1"]
 
 [sub_resource type="Animation" id="Animation_qpvh6"]
 length = 0.001
@@ -49,6 +34,22 @@ tracks/0/keys = {
 "values": [603.0, 700.0]
 }
 
+[sub_resource type="Animation" id="Animation_jvwwx"]
+resource_name = "pop_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.7320807, 1),
+"update": 0,
+"values": [700.0, 603.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fls4u"]
 _data = {
 &"RESET": SubResource("Animation_qpvh6"),
@@ -64,10 +65,12 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = 52.0
-offset_right = 333.0
-offset_bottom = 97.0
+offset_right = 417.0
+offset_bottom = 99.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("2_atyv1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
 text = "ITEM_NULL Collected!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="item_label"]
