@@ -2,7 +2,7 @@ extends Node
 
 var DIALOG = {
 	"level1": [
-		#"%SPEAKER:Biden%",
+		"%SPEAKER:PA Voice%",
 		"Welcome to the MICHEALSOFT testing center!",
 		"You will work on testing MICHEALSOFT products!",
 		"The chamber door will open in",
@@ -14,6 +14,14 @@ var DIALOG = {
 		"%STOP%",
 		"Find your way to the Michealsoft goal!",
 		"%STOP%"
+	],
+	"level2": [
+		"This next chamber contains",
+		"MICHEALSOFT Intellectual Property Protection Devices",
+		"They may cause death when contacted",
+		"Stay Safe!",
+		"%TOGGLEDOOR:1%",
+		"%STOP%"
 	]
 }
 
@@ -24,7 +32,7 @@ var curr_dialog = ["TEST DIALOG", "TEST", "TEST", "FIXME"]
 
 var curr_dialog_counter = 0
 
-var curr_speaker = "PA Voice:"
+var curr_speaker = "!!FIX ME!!"
 
 func set_dialog_box(box: Node2D):
 	dialog_box = box
