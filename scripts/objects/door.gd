@@ -10,7 +10,7 @@ func close_door():
 	door_open = false
 	$AnimationPlayer.play("door_close")
 
-func toggle_door():
+func toggle_interactable():
 	if door_open:
 		close_door()
 	else:

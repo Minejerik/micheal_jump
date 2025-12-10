@@ -1,9 +1,6 @@
 extends Node2D
 
-@export var door1: Node2D
-@export var door2: Node2D
+@export var interactables: Array[Node]
 
-func toggle_door(door:int):
-	match door:
-		1: door1.toggle_door()
-		2: door2.toggle_door()
+func toggle_interactable(interactable:int):
+	interactables[interactable-1].toggle_interactable()

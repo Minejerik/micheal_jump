@@ -9,7 +9,7 @@ var DIALOG = {
 		"3",
 		"2",
 		"1",
-		"%TOGGLEDOOR:1%",
+		"%TOGGLEINT:1%",
 		"Please leave the chamber to your right!",
 		"%STOP%",
 		"Find your way to the Michealsoft goal!",
@@ -20,7 +20,18 @@ var DIALOG = {
 		"MICHEALSOFT Intellectual Property Protection Devices",
 		"They may cause death when contacted",
 		"Stay Safe!",
-		"%TOGGLEDOOR:1%",
+		"%TOGGLEINT:1%",
+		"%STOP%"
+	],
+	"TEST": [
+		"%STOP%",
+		"%TOGGLEINT:3%",
+		"%STOP%",
+		"Thank you for participating in MICHEALSOFT Testing!",
+		"Rewards are not in the cards as of now",
+		"Enjoy!",
+		"%TOGGLEINT:1%",
+		"%TOGGLEINT:2%",
 		"%STOP%"
 	]
 }
@@ -47,6 +58,7 @@ func start_dialog():
 	
 func next_dialog():
 	var curr = curr_dialog[curr_dialog_counter]
+	print("next dialog "+str(curr_dialog_counter)+": "+curr)
 	if "%" not in curr:
 		dialog_box.set_speaker(curr_speaker)
 		dialog_box.set_dialog(curr)
@@ -60,9 +72,9 @@ func next_dialog():
 			curr_speaker = curr.replace("SPEAKER:", "") + ":"
 			curr_dialog_counter += 1
 			next_dialog()
-		elif "TOGGLEDOOR" in curr:
-			var door_to_open = int(curr.replace("TOGGLEDOOR:", ""))
-			level_controller.toggle_door(door_to_open)
+		elif "TOGGLEINT" in curr:
+			var door_to_open = int(curr.replace("TOGGLEINT:", ""))
+			level_controller.toggle_interactable(door_to_open)
 			curr_dialog_counter += 1
 			next_dialog()
 		

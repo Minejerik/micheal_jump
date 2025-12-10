@@ -55,9 +55,9 @@ position = Vector2(89, 330)
 box = NodePath("../Dialog")
 controller = NodePath("../LevelController")
 
-[node name="LevelController" parent="." node_paths=PackedStringArray("door1") instance=ExtResource("12_lgguw")]
+[node name="LevelController" parent="." node_paths=PackedStringArray("interactables") instance=ExtResource("12_lgguw")]
 position = Vector2(106, 330)
-door1 = NodePath("../Door")
+interactables = [NodePath("../Door")]
 
 [node name="Door" parent="." instance=ExtResource("13_jprdt")]
 position = Vector2(-8, 272)
