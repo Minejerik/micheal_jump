@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var run_speed = 200
 @export var bicheal_mode = false
 
+@onready var sprite = $Sprite2D
+
 var jumping = false
 var dying = false
 var send_pos = false
@@ -46,6 +48,14 @@ func _physics_process(delta: float) -> void:
 			jumping = false
 			
 		var input_direction = Input.get_axis("ui_left", "ui_right")
+		if input_direction != 0:
+			sprite.play("run")
+			sprite.flip_h = input_direction < 0
+		else:
+			sprite.play("idle")
+			
+			
+			
 		velocity.x = input_direction * run_speed
 	
 	move_and_slide()
@@ -58,3 +68,9 @@ func _input(_event: InputEvent) -> void:
 
 func _on_death_timer_timeout() -> void:
 	DM.player_death_callback()
+
+func _on_push_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("pushable") and body.name != "player":
+		print(body.name)
+		body = body as RigidBody2D
+		body.apply_central_impulse(Vector2(250, 100))

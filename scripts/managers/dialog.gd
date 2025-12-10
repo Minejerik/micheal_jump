@@ -16,6 +16,7 @@ var DIALOG = {
 		"%STOP%"
 	],
 	"level2": [
+		"%SPEAKER:PA Voice%",
 		"This next chamber contains",
 		"MICHEALSOFT Intellectual Property Protection Devices",
 		"They may cause death when contacted",
@@ -23,7 +24,21 @@ var DIALOG = {
 		"%TOGGLEINT:1%",
 		"%STOP%"
 	],
-	"TEST": [
+	"level3":[
+		"%SPEAKER:PA Voice%",
+		"This chamber contains",
+		"MICHEALSOFT 365 Acceleration Devices",
+		"To operate",
+		"Jump on them and then jump again while in contact",
+		"Failure to do so may result in death!",
+		"%TOGGLEINT:1%",
+		"%STOP%"
+	],
+	"sec1end": [
+		"%SPEAKER:PA Voice%",
+		"You have reached the end of testing.",
+		"Please leave through the door and step on the platform.",
+		"%TOGGLEINT:7%",
 		"%STOP%",
 		"%TOGGLEINT:3%",
 		"%STOP%",
@@ -32,6 +47,21 @@ var DIALOG = {
 		"Enjoy!",
 		"%TOGGLEINT:1%",
 		"%TOGGLEINT:2%",
+		"%TOGGLEINT:4%",
+		"%TOGGLEINT:5%",
+		"%PAUSE:10%",
+		"INITIATE MICHEALSOFT CLEANING PROCEDURE",
+		"%TOGGLEINT:6%",
+		"%STOP%",
+		"%SPEAKER:Unknown Voice%",
+		"%TOGGLEINT:6%",
+		"hello",
+		"i am here to help",
+		"if you want to live you must escape",
+		"i will guide you",
+		"ill explain more later just RUN",
+		"im opening the door for you right now",
+		"%TOGGLEINT:8%",
 		"%STOP%"
 	]
 }
@@ -77,4 +107,11 @@ func next_dialog():
 			level_controller.toggle_interactable(door_to_open)
 			curr_dialog_counter += 1
 			next_dialog()
+		elif "PAUSE" in curr:
+			dialog_box.stop_dialog()
+			var time_to_pause = int(curr.replace("PAUSE:", ""))
+			curr_dialog_counter += 1
+			await get_tree().create_timer(time_to_pause).timeout
+			next_dialog()
+			
 		

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct774ajjanhn3"]
+
+[ext_resource type="Texture2D" uid="uid://ijm3xv74dl4n" path="res://assets/images/objects/box.png" id="1_2vq68"]
+[ext_resource type="Script" uid="uid://bsysogncu2wgf" path="res://scripts/objects/box.gd" id="1_tf0hf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tf0hf"]
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh8mm"]
+size = Vector2(16, 16)
+
+[node name="Box" type="RigidBody2D" groups=["pushable"]]
+texture_filter = 1
+physics_material_override = SubResource("PhysicsMaterial_tf0hf")
+script = ExtResource("1_tf0hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sh8mm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2vq68")

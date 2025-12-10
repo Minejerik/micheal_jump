@@ -41,7 +41,7 @@ theme_override_constants/margin_bottom = 5
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "This test has been the most SATISFACTORY yet!"
+text = "Clip? \"Clip\" can't save you now"
 autowrap_mode = 2
 
 [node name="dialog_timer" type="Timer" parent="."]
