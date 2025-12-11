@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvpw34aqvmdus"]
+[gd_scene load_steps=12 format=3 uid="uid://dvpw34aqvmdus"]
 
 [ext_resource type="Texture2D" uid="uid://b33dcw02qw87i" path="res://assets/images/objects/door.png" id="1_uw3m6"]
 [ext_resource type="Script" uid="uid://h4ddp4u0ux2a" path="res://scripts/objects/door.gd" id="1_xm0wp"]
@@ -61,6 +61,18 @@ _data = {
 &"door_open": SubResource("Animation_uw3m6")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xm0wp"]
+animation = &"door_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aji8h"]
+animation = &"door_open"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_w0irj"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_xm0wp")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_aji8h")
+blend_point_1/pos = 1.0
+
 [node name="Door" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_xm0wp")
@@ -83,3 +95,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_xm0wp")
 }
 autoplay = "new_animation"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendSpace1D_w0irj")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = Vector2(0.10047841, 0.08791208)

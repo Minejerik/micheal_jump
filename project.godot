@@ -37,6 +37,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 pushable=""
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 pause={

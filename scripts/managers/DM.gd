@@ -8,7 +8,7 @@ var deaths = 0
 # The current level the player is on
 var level_counter = 0
 # The list of all levels
-var levels = ["level4", "level5", "sec1end", "level1", "level2", "level3", ]
+var levels = ["level5", "level1", "level2", "level3", "level4",  "sec1end",]
 
 # BICHEAL STUFF
 var last_positions = []

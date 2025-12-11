@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://kgjw0l0on6l4"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://kgjw0l0on6l4"]
 
 [ext_resource type="Texture2D" uid="uid://1s0cul7fnpqd" path="res://assets/images/tile_set.png" id="1_l70by"]
+[ext_resource type="Texture2D" uid="uid://yfub6qocfvap" path="res://assets/images/spikes.png" id="2_ylah7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylah7"]
 texture = ExtResource("1_l70by")
@@ -29,6 +30,11 @@ texture = ExtResource("1_l70by")
 0:6/0 = 0
 1:6/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcvr3"]
+texture = ExtResource("2_ylah7")
+0:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ylah7")
+sources/1 = SubResource("TileSetAtlasSource_fcvr3")

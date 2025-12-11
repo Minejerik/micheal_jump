@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://5ni6uyd2e7w0"]
+
+[ext_resource type="Texture2D" uid="uid://dxkyqni8ekbow" path="res://assets/images/objects/button_pressed.png" id="1_2wxwk"]
+[ext_resource type="Script" uid="uid://lm54vae45eh" path="res://scripts/objects/button.gd" id="1_e5cij"]
+[ext_resource type="Texture2D" uid="uid://cbmnnflkr0xxu" path="res://assets/images/objects/button_unpressed.png" id="2_e5cij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bejyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2wxwk")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5cij")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wxwk"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5cij"]
+size = Vector2(26, 5)
+
+[sub_resource type="Animation" id="Animation_e5cij"]
+resource_name = "button_press"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bejyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_nsah0"]
+resource_name = "button_unpress"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsah0"]
+_data = {
+&"RESET": SubResource("Animation_bejyh"),
+&"button_press": SubResource("Animation_e5cij"),
+&"button_unpress": SubResource("Animation_nsah0")
+}
+
+[node name="Button" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1_e5cij")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_bejyh")
+animation = &"pressed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_2wxwk")
+
+[node name="pressArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pressArea"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_e5cij")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nsah0")
+}
+
+[connection signal="body_entered" from="pressArea" to="." method="_on_press_area_body_entered"]
+[connection signal="body_exited" from="pressArea" to="." method="_on_press_area_body_exited"]

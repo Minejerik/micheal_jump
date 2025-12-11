@@ -9,12 +9,12 @@ script = ExtResource("1_xqt65")
 [node name="Dialog" type="Window" parent="."]
 oversampling_override = 1.0
 title = "PA system:"
-position = Vector2i(740, 534)
-size = Vector2i(400, 100)
+position = Vector2i(720, 534)
+size = Vector2i(420, 100)
 visible = false
 popup_window = true
 min_size = Vector2i(195, 100)
-max_size = Vector2i(400, 100)
+max_size = Vector2i(420, 100)
 theme = ExtResource("1_t7mmw")
 
 [node name="ColorRect" type="ColorRect" parent="Dialog"]
@@ -38,10 +38,10 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="dialog_label" type="Label" parent="Dialog/ColorRect/MarginContainer"]
-custom_minimum_size = Vector2(380, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Clip? \"Clip\" can't save you now"
+theme_override_font_sizes/font_size = 30
+text = "Step on the MICHEALSOFT Secure Access Plate to open the second door"
 autowrap_mode = 2
 
 [node name="dialog_timer" type="Timer" parent="."]

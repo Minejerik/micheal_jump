@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b5nfarcfq1xmw"]
+[gd_scene load_steps=17 format=4 uid="uid://b5nfarcfq1xmw"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_4u1yh"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_badih"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ct774ajjanhn3" path="res://scenes/objects/box.tscn" id="11_x5m7d"]
 [ext_resource type="PackedScene" uid="uid://dvpw34aqvmdus" path="res://scenes/objects/door.tscn" id="12_mbmb6"]
 [ext_resource type="PackedScene" uid="uid://yocr32ay4bfn" path="res://scenes/objects/jump_extra.tscn" id="13_badih"]
+[ext_resource type="PackedScene" uid="uid://ccxbvw7ywa8oq" path="res://scenes/objects/door_goal.tscn" id="14_hnm62"]
 
 [sub_resource type="Curve2D" id="Curve2D_ih40c"]
 _data = {
@@ -159,7 +160,7 @@ position = Vector2(345, 25)
 dialog_control = true
 
 [node name="Box" parent="." instance=ExtResource("11_x5m7d")]
-position = Vector2(376, 179)
+position = Vector2(376, 118)
 dialog_control = true
 
 [node name="cleaning_door" parent="." instance=ExtResource("12_mbmb6")]
@@ -180,3 +181,6 @@ position = Vector2(96, 64)
 
 [node name="JumpExtra" parent="." instance=ExtResource("13_badih")]
 position = Vector2(16, 128)
+
+[node name="goal" parent="." instance=ExtResource("14_hnm62")]
+position = Vector2(-56, -14)

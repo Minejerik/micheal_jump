@@ -29,7 +29,7 @@ var DIALOG = {
 		"This chamber contains a",
 		"MICHEALSOFT 365 Acceleration Device",
 		"To operate",
-		"Jump on them and then jump again while in contact",
+		"Jump on it and then jump again while in contact",
 		"Failure to do so may result in death!",
 		"%TOGGLEINT:1%",
 		"%STOP%"
@@ -43,6 +43,16 @@ var DIALOG = {
 		"%TOGGLEINT:1%",
 		"%STOP%",
 		"%TOGGLEINT:2%",
+		"%STOP%"
+	],
+	"level5": [
+		"%SPEAKER:PA Voice%",
+		"Due to budget cuts only this door can be opened automatically",
+		"Step on the MICHEALSOFT Secure Access Plate to open the second door",
+		"Warning: MSSAP may cause death when provoked",
+		"%TOGGLEINT:1%",
+		"%STOP%",
+		"Good to see the you haven't provoked the button!",
 		"%STOP%"
 	],
 	"sec1end": [
