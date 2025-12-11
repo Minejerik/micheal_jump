@@ -26,12 +26,23 @@ var DIALOG = {
 	],
 	"level3":[
 		"%SPEAKER:PA Voice%",
-		"This chamber contains",
-		"MICHEALSOFT 365 Acceleration Devices",
+		"This chamber contains a",
+		"MICHEALSOFT 365 Acceleration Device",
 		"To operate",
 		"Jump on them and then jump again while in contact",
 		"Failure to do so may result in death!",
 		"%TOGGLEINT:1%",
+		"%STOP%"
+	],
+	"level4": [
+		"%SPEAKER:PA Voice%",
+		"This chamber contains a",
+		"MICHEALSOFT Assured Transit platform",
+		"Step on the platform and the rest is automatic!",
+		"Have fun!",
+		"%TOGGLEINT:1%",
+		"%STOP%",
+		"%TOGGLEINT:2%",
 		"%STOP%"
 	],
 	"sec1end": [
