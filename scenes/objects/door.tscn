@@ -97,6 +97,7 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = SubResource("AnimationNodeBlendSpace1D_w0irj")
 anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2(0.10047841, 0.08791208)
+parameters/blend_position = 0.0

@@ -6,14 +6,14 @@ extends StaticBody2D
 var pressed = false
 var ran_dialog = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if pressed:
 		$AnimatedSprite2D.play("pressed")
 	else:
 		$AnimatedSprite2D.play("unpressed")
 
 func _on_press_area_body_entered(body: Node2D) -> void:
-	if body.name != "Button":
+	if "Button" not in body.name:
 		if !ran_dialog && trigger_dialog:
 			ran_dialog = true
 			Dialog.next_dialog()

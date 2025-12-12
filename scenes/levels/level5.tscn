@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bx46cljpyibtv"]
+[gd_scene load_steps=11 format=4 uid="uid://uui6ddgnk1bf"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_vnf24"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_pm1y0"]
@@ -60,4 +60,5 @@ position = Vector2(440, 192)
 [node name="Button" parent="." node_paths=PackedStringArray("to_trigger") instance=ExtResource("10_lsgss")]
 position = Vector2(306, 222)
 to_trigger = NodePath("../Door2")
+toggle = true
 trigger_dialog = true
