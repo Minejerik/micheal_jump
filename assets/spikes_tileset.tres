@@ -1,9 +1,34 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b0ghvm7f4jsb0"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b0ghvm7f4jsb0"]
 
 [ext_resource type="PackedScene" uid="uid://bucfloaggv36w" path="res://scenes/objects/spikes.tscn" id="1_qrhqv"]
+[ext_resource type="Texture2D" uid="uid://b37q5edtnae55" path="res://assets/images/deco_tile_set.png" id="2_c1fy2"]
+[ext_resource type="Texture2D" uid="uid://ceb540apysd50" path="res://assets/images/small_deco_tileset.png" id="3_dfaij"]
+[ext_resource type="Texture2D" uid="uid://4xxhtnchdbqm" path="res://assets/images/poster_tileset.png" id="4_grxbr"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c1fy2"]
 scenes/1/scene = ExtResource("1_qrhqv")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dfaij"]
+texture = ExtResource("2_c1fy2")
+texture_region_size = Vector2i(64, 64)
+0:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grxbr"]
+texture = ExtResource("3_dfaij")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vyu36"]
+texture = ExtResource("4_grxbr")
+texture_region_size = Vector2i(32, 48)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetScenesCollectionSource_c1fy2")
+sources/1 = SubResource("TileSetAtlasSource_dfaij")
+sources/2 = SubResource("TileSetAtlasSource_grxbr")
+sources/3 = SubResource("TileSetAtlasSource_vyu36")

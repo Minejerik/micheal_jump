@@ -61,8 +61,6 @@ var DIALOG = {
 		"Please leave through the door and step on the platform.",
 		"%TOGGLEINT:7%",
 		"%STOP%",
-		"%TOGGLEINT:3%",
-		"%STOP%",
 		"Thank you for participating in MICHEALSOFT Testing!",
 		"Rewards are not in the cards as of now",
 		"Enjoy!",
@@ -84,6 +82,19 @@ var DIALOG = {
 		"im opening the door for you right now",
 		"%TOGGLEINT:8%",
 		"%STOP%"
+	],
+	"sec2level1": [
+		"%SPEAKER:Unknown Voice%",
+		"you need to make your way to the michealsoft distribution servers",
+		"you need to destroy them",
+		"im clearing the way for you now",
+		"%TOGGLEINT:1%",
+		"%STOP%",
+		"michealsoft is an evil company",
+		"my name is clip by the way",
+		"%SPEAKER:Clip%",
+		"%STOP%"
+		
 	]
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b5nfarcfq1xmw"]
+[gd_scene load_steps=18 format=4 uid="uid://b5nfarcfq1xmw"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_4u1yh"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="2_badih"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dvpw34aqvmdus" path="res://scenes/objects/door.tscn" id="12_mbmb6"]
 [ext_resource type="PackedScene" uid="uid://yocr32ay4bfn" path="res://scenes/objects/jump_extra.tscn" id="13_badih"]
 [ext_resource type="PackedScene" uid="uid://ccxbvw7ywa8oq" path="res://scenes/objects/door_goal.tscn" id="14_hnm62"]
+[ext_resource type="PackedScene" uid="uid://p7yoqxjv4dcc" path="res://scenes/objects/activate_inter.tscn" id="15_be0hf"]
 
 [sub_resource type="Curve2D" id="Curve2D_ih40c"]
 _data = {
@@ -125,10 +126,6 @@ interactables = [NodePath("../right_spikes/platform"), NodePath("../left_spikes/
 position = Vector2(361.99997, 53.000008)
 scale = Vector2(-4.5522656, 3.9981515)
 
-[node name="DialogContinue2" parent="." instance=ExtResource("10_vtn0a")]
-position = Vector2(504.00003, -74)
-scale = Vector2(2.6400099, 1)
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="spikes" parent="Node2D" instance=ExtResource("9_lyyo4")]
@@ -156,11 +153,13 @@ position = Vector2(504, 72)
 position = Vector2(520, 72)
 
 [node name="Box2" parent="." instance=ExtResource("11_x5m7d")]
-position = Vector2(345, 25)
+position = Vector2(349, 30)
+rotation = 0.7661975
 dialog_control = true
 
 [node name="Box" parent="." instance=ExtResource("11_x5m7d")]
-position = Vector2(376, 118)
+position = Vector2(373, 72)
+rotation = -0.5593114
 dialog_control = true
 
 [node name="cleaning_door" parent="." instance=ExtResource("12_mbmb6")]
@@ -184,3 +183,8 @@ position = Vector2(16, 128)
 
 [node name="goal" parent="." instance=ExtResource("14_hnm62")]
 position = Vector2(-56, -14)
+
+[node name="InterActivate" parent="." node_paths=PackedStringArray("inter") instance=ExtResource("15_be0hf")]
+position = Vector2(504, -74)
+scale = Vector2(2.5200195, 1)
+inter = NodePath("../player_platform/platform")
