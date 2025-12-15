@@ -94,7 +94,13 @@ var DIALOG = {
 		"my name is clip by the way",
 		"%SPEAKER:Clip%",
 		"%STOP%"
-		
+	],
+	"sec2level2": [
+		"%SPEAKER:Clip%",
+		"you are heading towards the servers now",
+		"they allow michealsoft to distribute their OSs",
+		"destroying them will hurt them",
+		"%STOP%"
 	]
 }
 
