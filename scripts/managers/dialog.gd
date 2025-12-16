@@ -101,6 +101,14 @@ var DIALOG = {
 		"they allow michealsoft to distribute their OSs",
 		"destroying them will hurt them",
 		"%STOP%"
+	],
+	"sec2serverintro": [
+		"%SPEAKER:Clip",
+		"you are near",
+		"i cant open the second door",
+		"%TOGGLEINTR:1%",
+		"use the computer and open it yourself",
+		"%STOP%"
 	]
 }
 
@@ -118,6 +126,13 @@ func set_dialog_box(box: Node2D):
 
 func set_level_controller(controller: Node2D):
 	level_controller = controller
+
+func run_dialog(speaker, dialog):
+	dialog_box.set_speaker(speaker)
+	dialog_box.set_dialog(dialog, false)
+
+func stop_dialog():
+	dialog_box.stop_dialog()
 
 func start_dialog():
 	curr_dialog = DIALOG[DM.levels[DM.level_counter]]

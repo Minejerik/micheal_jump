@@ -1,9 +1,12 @@
 extends Node2D
 
+var run_again = true
+
 func set_speaker(speaker: String):
 	$Dialog.title = speaker
 	
-func set_dialog(dialog: String):
+func set_dialog(dialog: String, should_run_again: bool = true):
+	run_again = should_run_again
 	$Dialog/ColorRect/MarginContainer/dialog_label.text = dialog
 	$Dialog.show()
 	if len(dialog) <= 10:
@@ -15,4 +18,7 @@ func stop_dialog():
 	$Dialog.hide()
 
 func _on_dialog_timer_timeout() -> void:
-	Dialog.next_dialog()
+	if run_again:
+		Dialog.next_dialog()
+	else:
+		stop_dialog()

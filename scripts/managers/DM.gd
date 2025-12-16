@@ -5,10 +5,13 @@ var allowed_jump_again = false
 # Counter of the players deaths
 var deaths = 0
 
+# Ensures the computer isnt opened when it already is
+var using_computer = false
+
 # The current level the player is on
 var level_counter = 0
 # The list of all levels
-var levels = ["sec2server", "level1", "level2", "level3", "level4", "level5", "level6", "sec1end", "sec2level1", "sec2level2",]
+var levels = ["sec2serverintro", "level1", "level2", "level3", "level4", "level5", "level6", "sec1end", "sec2level1", "sec2level2",]
 
 # BICHEAL STUFF
 var last_positions = []
