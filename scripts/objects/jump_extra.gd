@@ -16,12 +16,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			TM.request_time_change(0.5, 5)
 		DM.allowed_jump_again = true
 		cool_down = true
+	elif body.name == "haf":
+		cool_down = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		if SM.SETTINGS["assist"]:
 			TM.request_time_change(1, 5)
 		DM.allowed_jump_again = false
+		$Timer.start()
+	elif body.name == "haf":
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
