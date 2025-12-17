@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bg4057yv7ojts"]
+[gd_scene load_steps=11 format=4 uid="uid://bg4057yv7ojts"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_p05jx"]
 [ext_resource type="TileSet" uid="uid://b0ghvm7f4jsb0" path="res://assets/spikes_tileset.tres" id="2_r14ar"]
@@ -8,18 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bw152m5mux6bk" path="res://scenes/objects/level_controller.tscn" id="6_x2lje"]
 [ext_resource type="PackedScene" uid="uid://cm5kk4gg36icl" path="res://scenes/ui/dialog.tscn" id="7_f6hwu"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="8_v83el"]
-[ext_resource type="PackedScene" uid="uid://etbj4228y3n6" path="res://scenes/haf.tscn" id="9_i4526"]
-[ext_resource type="PackedScene" uid="uid://yocr32ay4bfn" path="res://scenes/objects/jump_extra.tscn" id="10_mtsnv"]
-[ext_resource type="PackedScene" uid="uid://cc1cyebpjid5f" path="res://scenes/objects/goal.tscn" id="11_a30iq"]
-[ext_resource type="Script" path="res://scripts/sub_viewport.gd" id="12_gxf7a"]
-[ext_resource type="Texture2D" uid="uid://jme5xuca8qbg" path="res://assets/images/menu/bg.png" id="13_547jw"]
-[ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="14_w8rf2"]
-[ext_resource type="PackedScene" uid="uid://bwuki8t277rri" path="res://scenes/objects/computer.tscn" id="15_mgkgs"]
 [ext_resource type="PackedScene" uid="uid://ccxbvw7ywa8oq" path="res://scenes/objects/door_goal.tscn" id="16_6urhp"]
 [ext_resource type="PackedScene" uid="uid://dvpw34aqvmdus" path="res://scenes/objects/door.tscn" id="17_mffy1"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ovv5d"]
-viewport_path = NodePath("SubViewport")
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
@@ -52,114 +42,6 @@ position = Vector2(-53, 477)
 
 [node name="player" parent="." instance=ExtResource("8_v83el")]
 position = Vector2(-215, 70)
-
-[node name="haf" parent="." instance=ExtResource("9_i4526")]
-position = Vector2(-1116, 164)
-
-[node name="fakeLevel" type="Node2D" parent="."]
-
-[node name="JumpExtra2" parent="fakeLevel" instance=ExtResource("10_mtsnv")]
-position = Vector2(-1032, 8)
-
-[node name="JumpExtra" parent="fakeLevel" instance=ExtResource("10_mtsnv")]
-position = Vector2(-960, 88)
-
-[node name="goal" parent="fakeLevel" instance=ExtResource("11_a30iq")]
-position = Vector2(-936, -14)
-
-[node name="SubViewport" type="SubViewport" parent="."]
-size_2d_override_stretch = true
-render_target_update_mode = 4
-script = ExtResource("12_gxf7a")
-
-[node name="Camera2D" type="Camera2D" parent="SubViewport"]
-texture_filter = 1
-position = Vector2(-1050, 39)
-zoom = Vector2(1.7, 1.7)
-
-[node name="HafComputer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="TextureRect" type="TextureRect" parent="HafComputer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_547jw")
-metadata/_edit_lock_ = true
-
-[node name="Word" type="Window" parent="HafComputer"]
-oversampling_override = 1.0
-title = "reports.txt"
-position = Vector2i(636, 33)
-size = Vector2i(500, 500)
-visible = false
-unresizable = true
-popup_window = true
-min_size = Vector2i(195, 100)
-max_size = Vector2i(500, 500)
-keep_title_visible = true
-theme = ExtResource("14_w8rf2")
-
-[node name="ColorRect" type="ColorRect" parent="HafComputer/Word"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.83889705, 0.83889705, 0.838897, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="HafComputer/Word/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HafComputer/Word/ColorRect/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("14_w8rf2")
-text = "===========REPORT=============
-SUBJECT: Haf
-SKILL: Above Average"
-
-[node name="Word2" type="Window" parent="HafComputer"]
-oversampling_override = 1.0
-title = "camera.exe"
-initial_position = 1
-size = Vector2i(500, 500)
-visible = false
-unresizable = true
-popup_window = true
-min_size = Vector2i(195, 100)
-max_size = Vector2i(500, 500)
-keep_title_visible = true
-theme = ExtResource("14_w8rf2")
-
-[node name="ColorRect" type="ColorRect" parent="HafComputer/Word2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.83889705, 0.83889705, 0.838897, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="HafComputer/Word2/ColorRect"]
-position = Vector2(250, 250)
-scale = Vector2(0.9765625, 0.9765625)
-texture = SubResource("ViewportTexture_ovv5d")
-
-[node name="Computer" parent="." instance=ExtResource("15_mgkgs")]
-position = Vector2(88, 56)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.32544088, 0.3254409, 0.32544088, 1)
 
 [node name="goal" parent="." instance=ExtResource("16_6urhp")]
 position = Vector2(168, 66)

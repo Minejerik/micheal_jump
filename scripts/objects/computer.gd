@@ -3,6 +3,7 @@ extends Area2D
 @export var to_show: Array[Node]
 @export var to_open: Array[Node2D]
 @export var button_to_open: Button
+@export var haf: Node2D
 
 var player_in_range = false
 
@@ -27,6 +28,8 @@ func open_all():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("interact") && player_in_range:
+		Dialog.stop_dialog()
+		haf.toggle_interactable()
 		show_showables()
 		DM.using_computer = true
 

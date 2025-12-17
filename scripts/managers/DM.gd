@@ -11,8 +11,8 @@ var using_computer = false
 # The current level the player is on
 var level_counter = 0
 # The list of all levels
-var levels = ["sec2serverintro", "level1", "level2", "level3", "level4", "level5", "level6", "sec1end", "sec2level1", "sec2level2",]
-
+var levels = ["sec2serverintro", "level1", "level2", "level3", "level4", "level5", "level6", "sec1end", "sec2level1", "sec2level2", ]
+# 
 # BICHEAL STUFF
 var last_positions = []
 signal first_move
@@ -67,6 +67,7 @@ func pick_up(item_id):
 func next_level():
 	if !player_dead:
 		# Goes to the next level, increments level counter and loads it
+		#print(last_positions)
 		level_counter += 1
 		items_discovered.append_array(item_discovery_queue)
 		call_deferred("_load_level", levels[level_counter])

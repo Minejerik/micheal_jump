@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if bicheal_mode && send_pos:
-		DM.bicheal_add_position(position)
+		DM.bicheal_add_position([position,sprite.flip_h])
 
 func _input(_event: InputEvent) -> void:
 	send_pos = true

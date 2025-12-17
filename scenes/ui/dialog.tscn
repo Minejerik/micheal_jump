@@ -7,12 +7,17 @@
 script = ExtResource("1_xqt65")
 
 [node name="Dialog" type="Window" parent="."]
+canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
 title = "PA system:"
 position = Vector2i(720, 534)
 size = Vector2i(420, 100)
 visible = false
+unresizable = true
+unfocusable = true
 popup_window = true
+minimize_disabled = true
+maximize_disabled = true
 min_size = Vector2i(195, 100)
 max_size = Vector2i(420, 100)
 theme = ExtResource("1_t7mmw")
