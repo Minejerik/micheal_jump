@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://qs4vqdecw5i6"]
+[gd_scene load_steps=21 format=4 uid="uid://cp2ms2mjm1jp5"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_m5gfv"]
 [ext_resource type="TileSet" uid="uid://b0ghvm7f4jsb0" path="res://assets/spikes_tileset.tres" id="2_bldsd"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://etbj4228y3n6" path="res://scenes/haf.tscn" id="9_jdra7"]
 [ext_resource type="PackedScene" uid="uid://yocr32ay4bfn" path="res://scenes/objects/jump_extra.tscn" id="10_jbcag"]
 [ext_resource type="PackedScene" uid="uid://cc1cyebpjid5f" path="res://scenes/objects/goal.tscn" id="11_cedey"]
-[ext_resource type="Script" uid="uid://n7wtmf5qknxe" path="res://scripts/sub_viewport.gd" id="12_omei4"]
+[ext_resource type="Script" path="res://scripts/sub_viewport.gd" id="12_omei4"]
 [ext_resource type="Texture2D" uid="uid://jme5xuca8qbg" path="res://assets/images/menu/bg.png" id="13_6f60c"]
 [ext_resource type="Theme" uid="uid://bgwet62xxfxeb" path="res://assets/ui/themes/main_menu.tres" id="14_1wn5p"]
 [ext_resource type="PackedScene" uid="uid://bwuki8t277rri" path="res://scenes/objects/computer.tscn" id="15_n11op"]
@@ -61,9 +61,7 @@ interactables = [NodePath("../Door2")]
 position = Vector2(-53, 477)
 
 [node name="player" parent="." instance=ExtResource("8_gf0d1")]
-position = Vector2(-972, 163)
-jump_speed = -320
-bicheal_mode = true
+position = Vector2(-162, 70)
 
 [node name="haf" parent="." instance=ExtResource("9_jdra7")]
 position = Vector2(-1248, 165)

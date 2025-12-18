@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b0ghvm7f4jsb0"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://b0ghvm7f4jsb0"]
 
 [ext_resource type="PackedScene" uid="uid://bucfloaggv36w" path="res://scenes/objects/spikes.tscn" id="1_qrhqv"]
 [ext_resource type="Texture2D" uid="uid://b37q5edtnae55" path="res://assets/images/deco_tile_set.png" id="2_c1fy2"]
 [ext_resource type="Texture2D" uid="uid://ceb540apysd50" path="res://assets/images/small_deco_tileset.png" id="3_dfaij"]
 [ext_resource type="Texture2D" uid="uid://4xxhtnchdbqm" path="res://assets/images/poster_tileset.png" id="4_grxbr"]
+[ext_resource type="Texture2D" uid="uid://cngx4f51uhjow" path="res://assets/images/cat_walk.png" id="5_vyu36"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c1fy2"]
 scenes/1/scene = ExtResource("1_qrhqv")
@@ -27,8 +28,17 @@ texture_region_size = Vector2i(32, 48)
 0:1/0 = 0
 1:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kk83"]
+texture = ExtResource("5_vyu36")
+0:0/0 = 0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 7.0312634, 8, 7.004528, 8, 8, -8, 8)
+2:0/0 = 0
+
 [resource]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetScenesCollectionSource_c1fy2")
 sources/1 = SubResource("TileSetAtlasSource_dfaij")
 sources/2 = SubResource("TileSetAtlasSource_grxbr")
 sources/3 = SubResource("TileSetAtlasSource_vyu36")
+sources/4 = SubResource("TileSetAtlasSource_6kk83")

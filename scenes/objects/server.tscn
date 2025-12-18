@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dii20f5kojgns"]
+
+[ext_resource type="Script" uid="uid://bsysogncu2wgf" path="res://scripts/objects/box.gd" id="1_mvspi"]
+[ext_resource type="Texture2D" uid="uid://c4lwxvup2vmhc" path="res://assets/images/objects/server.png" id="2_mvspi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tf0hf"]
+bounce = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh8mm"]
+size = Vector2(30, 47)
+
+[node name="Server" type="RigidBody2D"]
+texture_filter = 1
+physics_material_override = SubResource("PhysicsMaterial_tf0hf")
+script = ExtResource("1_mvspi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_sh8mm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mvspi")
