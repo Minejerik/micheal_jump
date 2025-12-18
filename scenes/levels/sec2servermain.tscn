@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bg4057yv7ojts"]
+[gd_scene load_steps=14 format=4 uid="uid://bg4057yv7ojts"]
 
 [ext_resource type="TileSet" uid="uid://kgjw0l0on6l4" path="res://assets/tileset.tres" id="1_p05jx"]
 [ext_resource type="TileSet" uid="uid://b0ghvm7f4jsb0" path="res://assets/spikes_tileset.tres" id="2_r14ar"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bw152m5mux6bk" path="res://scenes/objects/level_controller.tscn" id="6_x2lje"]
 [ext_resource type="PackedScene" uid="uid://cm5kk4gg36icl" path="res://scenes/ui/dialog.tscn" id="7_f6hwu"]
 [ext_resource type="PackedScene" uid="uid://cdg82mh4ljjty" path="res://scenes/player.tscn" id="8_v83el"]
-[ext_resource type="PackedScene" uid="uid://dii20f5kojgns" path="res://scenes/objects/server.tscn" id="9_qpvf2"]
+[ext_resource type="PackedScene" path="res://scenes/objects/server.tscn" id="9_qpvf2"]
 [ext_resource type="PackedScene" uid="uid://df4jbevpwdy0e" path="res://scenes/objects/dialog_continue.tscn" id="11_ilk7i"]
 [ext_resource type="PackedScene" uid="uid://5ni6uyd2e7w0" path="res://scenes/objects/button.tscn" id="12_n3w1t"]
+[ext_resource type="PackedScene" uid="uid://bkfl1vnybarq8" path="res://scenes/objects/explode.tscn" id="13_k68ch"]
 [ext_resource type="PackedScene" uid="uid://dvpw34aqvmdus" path="res://scenes/objects/door.tscn" id="17_mffy1"]
 
 [node name="Node2D" type="Node2D"]
@@ -69,5 +70,12 @@ position = Vector2(1080, -48)
 
 [node name="Button" parent="." node_paths=PackedStringArray("to_trigger") instance=ExtResource("12_n3w1t")]
 position = Vector2(1145, -18)
-to_trigger = NodePath("../Door")
+to_trigger = NodePath("../Explode")
+toggle = true
+one_shot = true
 trigger_dialog = true
+
+[node name="Explode" parent="." node_paths=PackedStringArray("to_explode") instance=ExtResource("13_k68ch")]
+position = Vector2(548, -46)
+to_explode = [NodePath("../Server3"), NodePath("../Server2"), NodePath("../Server")]
+power = 30.0
