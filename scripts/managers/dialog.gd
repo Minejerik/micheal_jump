@@ -66,9 +66,10 @@ var DIALOG = {
 		"Enjoy!",
 		"%TOGGLEINT:1%",
 		"%TOGGLEINT:2%",
+		"%PAUSE:0.5%",
 		"%TOGGLEINT:4%",
 		"%TOGGLEINT:5%",
-		"%PAUSE:10%",
+		"%PAUSE:9%",
 		"INITIATE MICHEALSOFT CLEANING PROCEDURE",
 		"%TOGGLEINT:6%",
 		"%STOP%",
@@ -113,7 +114,7 @@ var DIALOG = {
 	"sec2servermain":[
 		"%SPEAKER:Clip",
 		"you made it",
-		"%STOP%",
+		#"%STOP%",
 		"go past the servers and into the control room",
 		"opening the door for you now",
 		"%TOGGLEINTR:1%",
@@ -141,7 +142,11 @@ var DIALOG = {
 		"opening all doors now",
 		"%TOGGLEINTR:1%",
 		"%TOGGLEINTR:2",
+		"%TOGGLEINTR:3%",
 		"i wish you luck",
+		"%STOP%",
+		"up ahead you can leave through the misft employee door",
+		"%TOGGLEINTR:4%",
 		"%STOP%"
 	]
 }
